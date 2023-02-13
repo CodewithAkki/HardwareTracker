@@ -18,31 +18,18 @@ $db_password = "Test@123";
     $sql="IF NOT EXISTS(SELECT * FROM sysobjects  WHERE name='users' AND xtype='U')
         create table users(
             userId int IDENTITY(1,1) primary key,
-            mobileNo varchar(15) not null,
-            email varchar(200) not null,
+            mobileNo varchar(15)  null,
+            email varchar(200) unique not null,
             password varchar(200) not null,
             isAdmin BIT not null,
-            fullName varchar(200) not null
+            fullName varchar(200) not null,
+            userName varchar(100) unique not null
         )";
 
-    $sql2 = "
-        IF NOT EXISTS(SELECT * FROM sysobjects  WHERE name='users' AND xtype='U')
-        CREATE TABLE [dbo].[HardwareInfo](
-        [RowID] [int] IDENTITY(1,1) NOT NULL,
-        [SerialNumber] [nvarchar](50) NULL,
-        [PCName] [nvarchar](50) NULL,
-        [UserName] [char](30) NULL,
-        [HardwareName] [nvarchar](max) NULL,
-        [NoOfLicenses] [nvarchar](50) NULL,
-        [Licenses] [nvarchar](max) NULL
-    ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]"; 
+
 
     if($conn){    
         $stmt=sqlsrv_query($conn,$sql);
-        if($stmt == false){
-            echo sqlsrv_errors();
-        }
-        $stmt=sqlsrv_query($conn,$sql2);
         if($stmt == false){
             echo sqlsrv_errors();
         }

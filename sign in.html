@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +10,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles/index.css">
 </head>
-<body background="#F8F4EA">
+<body background="#F8F4EA" >
 
   <div class="leftmenu">
     <div class="heighlightmenuSignin"></div>
     <ul class = "undefindedlist">
-      <a href="http://localhost/HardwareFinder/index.html"><li class="home">Home</li></a>
+      <a href="http://localhost/HardwareFinder/index.php"><li class="home">Home</li></a>
       <a href="http://localhost/HardwareFinder/sign%20in.html"><li>Sign in</li></a>
       <a href="http://localhost/HardwareFinder/Contact%20us.html"><li>Contact us</li></a>
       <a href="http://localhost/HardwareFinder/about.html"><li>About</li></a>
@@ -27,15 +30,16 @@
         <form action="./php/login.php" method="post">
           <h1 class="signin">Sign in</h1>
           <div class="forms">
-          <form action="login.php" method="post">
-          <input type="text" placeholder="Username" class="username" autofocus/><br>
+        
+          <input type="text" name="username" placeholder="Username" class="username" autofocus/><br>
           <i class="fa fa-user"></i></br>
-          <input type="password" placeholder="Password" class="password"/></br></br>
+          <input type="password" name="password" placeholder="Password" class="password"/></br></br>
           <i class="fa fa-key"></i>
-          <a href="#" class="forgot">Forgot your password?</a><br><br>
+          <a href="http://localhost/HardwareFinder/php/forget.php" class="forgot">Forgot your password?</a><br><br>
+          
     <div class="buttons">      
 <input type="submit" value="login" name="submit" class="loginButton">
-<div class="signup"><a href="http://localhost/HardwareFinder/register.html"><p>Register yourself</p></a></div>
+<div class="signup"><a href="http://localhost/HardwareFinder/register.php"><p>Register yourself</p></a></div>
 </div>
           </div>
         </form>
