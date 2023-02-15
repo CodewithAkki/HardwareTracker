@@ -146,15 +146,15 @@ if (isset($_POST["submit"])) {
     <div class="heighlightmenuSignin"></div>
     <ul class = "undefindedlist">
       <a href="http://localhost/HardwareFinder/index.php"><li class="home">Home</li></a>
-      <a href="http://localhost/HardwareFinder/sign%20in.html"><li>Sign in</li></a>
-      <a href="http://localhost/HardwareFinder/Contact%20us.html"><li>Contact us</li></a>
+      <a href="http://localhost/HardwareFinder/sign_in.html"><li>Sign in</li></a>
+      <a href="http://localhost/HardwareFinder/Contact_us.html"><li>Contact us</li></a>
       <a href="http://localhost/HardwareFinder/about.html"><li>About</li></a>
     </ul>
     </div>
 
 
   <nav>
-    <img class="nav" src="./images/Top.png" alt="">
+  <img class="nav" src="./images/Group 3.png" alt="">
   </nav>   
   <div class ="login">
     <center>

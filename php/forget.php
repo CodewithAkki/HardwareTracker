@@ -30,7 +30,7 @@ if($stmt == false){
 
 
   <nav>
-    <img class="nav" src="../images/Top.png" alt="">
+  <img class="nav" src="../images/Group 3.png" alt="">
   </nav>
   <div class ="login">
     <center>

@@ -47,7 +47,7 @@ if($verify){
    
     <script>
         alert('user not found');
-        window.location.href='http://localhost/HardwareFinder/sign%20in.html';
+        window.location.href='http://localhost/HardwareFinder/sign_in.html';
     </script>
         
         

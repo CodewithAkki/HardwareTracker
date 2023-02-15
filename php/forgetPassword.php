@@ -15,7 +15,7 @@ if ($_SESSION['username']) {
       $stmt = sqlsrv_query($conn, $sql);
       echo "<script>";
       echo "alert('password has been changed');";
-      echo " window.location.href='http://localhost/HardwareFinder/sign%20in.html';";
+      echo " window.location.href='http://localhost/HardwareFinder/sign_in.html';";
       echo "</script>";
 
       

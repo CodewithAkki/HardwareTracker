@@ -25,6 +25,7 @@ session_start();
     <title>Document</title>
 
     <link rel="stylesheet" href="../styles/index.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,500&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -157,20 +158,29 @@ session_start();
     <div class="heighlightmenuHome"></div>
     <ul class = "undefindedlist">
       <a href="http://localhost/HardwareFinder/index.php"><li class="home">Home</li></a>
-      <a href="http://localhost/HardwareFinder/sign%20in.html"><li>Sign in</li></a>
-      <a href="http://localhost/HardwareFinder/Contact%20us.html"><li>Contact us</li></a>
+      <a href="http://localhost/HardwareFinder/sign_in.html"><li>Sign in</li></a>
+      <a href="http://localhost/HardwareFinder/Contact_us.html"><li>Contact us</li></a>
       <a href="http://localhost/HardwareFinder/about.html"><li>About</li></a>
     </ul>
   </div>
   <nav>
-    <img class="nav" src="../images/Top.png" alt="">
+  <img class="nav" src="./images/Group 3.png" alt="">
   </nav> 
 
   <div class="table-content">
-
+<?php
+  echo"  <script>";
+  echo "  function usernames(){";
+  echo "     let filter = document.getElementById('filter').value;";
+  echo"      if filter == 'UserName' {";
+  echo"          document.write('Hi')";
+  echo"      }";
+  echo"  }";
+  echo"  </script>"
+?>
   <form action="" method="get">
      <p class="filterLabel">filter</p>
-     <select name="filter" id="filter" class="filter">
+     <select name="filter" id="filter" class="filter" onchange="usernames()">
     <option value="RowID">Sr no</option>
     <option value="SerialNumber">Serial No</option>
     <option value="PCName">PC Name</option>
