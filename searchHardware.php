@@ -8,8 +8,6 @@ session_start();
         
         $search = $_GET['search'];
         $filter = $_GET['filter'];
-       
-
     }
    
     ?>
@@ -25,7 +23,12 @@ session_start();
     <title>Document</title>
 
     <link rel="stylesheet" href="../styles/index.css">
-
+    <script>
+        function usernames(){
+            let filter = document.getElementById('filter').value;
+            alert(filter)
+        }
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,500&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -159,8 +162,8 @@ session_start();
     <ul class = "undefindedlist">
       <a href="http://localhost/HardwareFinder/index.php"><li class="home">Home</li></a>
       <a href="http://localhost/HardwareFinder/sign_in.html"><li>Sign in</li></a>
-      <a href="http://localhost/HardwareFinder/Contact_us.html"><li>Contact us</li></a>
-      <a href="http://localhost/HardwareFinder/about.html"><li>About</li></a>
+      <a href="http://localhost/HardwareFinder/contact_us.html"><li>Contact us</li></a>
+      <a href="http://localhost/HardwareFinder/abouts.html"><li>About</li></a>
     </ul>
   </div>
   <nav>
@@ -168,19 +171,10 @@ session_start();
   </nav> 
 
   <div class="table-content">
-<?php
-  echo"  <script>";
-  echo "  function usernames(){";
-  echo "     let filter = document.getElementById('filter').value;";
-  echo"      if filter == 'UserName' {";
-  echo"          document.write('Hi')";
-  echo"      }";
-  echo"  }";
-  echo"  </script>"
-?>
+
   <form action="" method="get">
      <p class="filterLabel">filter</p>
-     <select name="filter" id="filter" class="filter" onchange="usernames()">
+     <select name="filter" id="filter1" class="filter" onchange="usernames()">
     <option value="RowID">Sr no</option>
     <option value="SerialNumber">Serial No</option>
     <option value="PCName">PC Name</option>
@@ -290,4 +284,3 @@ session_start();
   </div> 
 </body>
 </html>
-

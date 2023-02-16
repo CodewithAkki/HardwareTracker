@@ -6,9 +6,13 @@ session_start();
     $conn = conectivity();
     if (isset($_GET['request'])) {
         
-        $search = $_GET['search'];
+        if(isset( $_GET['search'])){
+            $search = $_GET['search'];
+        }
         $filter = $_GET['filter'];
-       
+       if ($filter == 'PCName'){
+        $search=mb_strtoupper($search);
+       }
 
     }
    
@@ -34,6 +38,7 @@ session_start();
             width: 80%;
             height: 450px;
             position: fixed;
+            
             right: 3%;
           }
 
@@ -41,16 +46,16 @@ session_start();
         
             color: white;
             border-collapse: collapse;
-            margin: 25px 0;
+            margin: 70px 0;
             font-size: 0.8em;
-           
+        
             border-radius: 5px 5px 0 0;
             overflow-y: scroll;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.505);
            
-            width: 80%;
+            width: 100%;
             height: 350px;
-            position: fixed;
+            position: absolute;
             right: 3%;
          
             
@@ -103,11 +108,9 @@ session_start();
     font-family: Roboto;
     position: fixed;
     left: 35%;
-    font-weight:300;
-    margin-top: -3px;
-    border-radius: 50px;
-    padding-left: 20px;
-    outline: none;
+    
+    font-weight: bold;
+
     color: black;
     margin-right:150px ;
 
@@ -117,7 +120,7 @@ session_start();
     position: fixed;
     left: 55%;
     font-weight: bold;
-    margin-top: -3px;
+    margin-top: 30px;
     color: black;
     margin-right:150px ;
 }
@@ -140,12 +143,25 @@ session_start();
     position: fixed;
     left: 60%;
     font-weight: bold;
-    margin-top: -3px;
+    margin-top: 30px;
     color: black;
     margin-right:150px ;
 }
+.filterusername{
+    font-family: Roboto;
+    position: fixed;
+    margin-top: 50px
+}
+
 
     </style>
+
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
+
 </head>
 <body background="#F8F4EA">
   <div class="home">
@@ -157,8 +173,8 @@ session_start();
     <ul class = "undefindedlist">
       <a href="http://localhost/HardwareFinder/index.php"><li class="home">Home</li></a>
       <a href="http://localhost/HardwareFinder/sign_in.html"><li>Sign in</li></a>
-      <a href="http://localhost/HardwareFinder/Contact_us.html"><li>Contact us</li></a>
-      <a href="http://localhost/HardwareFinder/about.html"><li>About</li></a>
+      <a href="http://localhost/HardwareFinder/contact_us.html"><li>Contact us</li></a>
+      <a href="http://localhost/HardwareFinder/abouts.html"><li>About</li></a>
     </ul>
   </div>
   <nav>
@@ -166,20 +182,46 @@ session_start();
   </nav> 
 
   <div class="table-content">
-
-  <form action="" method="get">
+  <script>
+function change(){
+   
+    document.getElementById("filter").submit()
+}
+</script>
+  <form action="" id="myform" method="get">
      <p class="filterLabel">filter</p>
-     <select name="filter" id="filter" class="filter">
-    <option value="SerialNumber">Serial No</option>
-    <option value="PCName">PC Name</option>
-    <option value="UserName">Username</option>
-    <option value="HardwareName">Hardware Name</option>
-    <option value="Licenses">Licenses</option>
+<select name="filter" id="filter" class="filter" onchange="change()">
+    <option value="SerialNumber"<?php if(isset($filter)){ if($filter=="SerialNumber"){echo"selected";}}?> >Serial No</option>
+    <option value="PCName"    <?php if(isset($filter)){if($filter=="PCName"){echo"selected";}}?>   >PC Name</option>
+    <option value="HardwareName" <?php if(isset($filter)){ if($filter=="HardwareName"){echo"selected";}}?> >Hardware Name</option>
+    <option value="Licenses"   <?php if(isset($filter)){ if($filter=="Licenses"){echo"selected";}}?>  >Licenses</option>
 </select>
 
-<input type="text" class="searchLabel" name="search"/>
+
+
 <input type="submit" value="submit" name="request" class="submitbutton"/>
 <input type="submit" value="clear" name="clear" class="clearbutton"/>
+<?php
+
+    $sql = "select * from HardwareInfo";
+    $stmt = sqlsrv_query($conn, $sql);
+    while ($obj = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+        if(isset($filter)){    
+        $usr[]=$obj[$filter];
+        }
+    }
+    if(isset($filter)){ 
+    $usr=array_unique($usr);
+    echo '<select name="search" id="username" class="searchLabel" >';
+    foreach($usr as $value ){
+        echo"<script>";
+        echo"alert($value);";
+        echo"</script>";
+        echo '<option value='. strip_tags($value).'>'. strip_tags($value).'</option>';
+    }
+    echo '</select>';
+}
+?>
 </form>
  
     <table class="content-table">

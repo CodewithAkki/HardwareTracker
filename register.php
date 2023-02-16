@@ -147,8 +147,8 @@ if (isset($_POST["submit"])) {
     <ul class = "undefindedlist">
       <a href="http://localhost/HardwareFinder/index.php"><li class="home">Home</li></a>
       <a href="http://localhost/HardwareFinder/sign_in.html"><li>Sign in</li></a>
-      <a href="http://localhost/HardwareFinder/Contact_us.html"><li>Contact us</li></a>
-      <a href="http://localhost/HardwareFinder/about.html"><li>About</li></a>
+      <a href="http://localhost/HardwareFinder/contact_us.html"><li>Contact us</li></a>
+      <a href="http://localhost/HardwareFinder/abouts.html"><li>About</li></a>
     </ul>
     </div>
 
