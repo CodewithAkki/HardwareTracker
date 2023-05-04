@@ -1,0 +1,13 @@
+name: work flow
+on: workflow_dispatch
+
+jobs:
+  secondjob:
+    
+    runs-on: ubuntu-latest
+    
+    steps:  
+      - name: list all files
+        run: ls
+      
+  
